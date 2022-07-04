@@ -15,3 +15,17 @@ exports.listFilms = async (collection) => {
     console.log(error);
   }
 };
+
+// create function for updating database entry
+
+exports.editFilm = async (collection, filmObj, edit) => {
+  try {
+    const editEntry = await collection.updateOne(
+      { filmObj },
+      { $set: { edit } }
+    );
+    console.log(editEntry);
+  } catch (error) {
+    console.log(error);
+  }
+};
